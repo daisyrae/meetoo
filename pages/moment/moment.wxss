@@ -1,0 +1,18 @@
+/* pages/moment/moment.wxss */
+page{
+  background-color: #fff;
+}
+
+.position-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.fixed-scroll{
+  position: fixed;
+  bottom: 0;
+  padding-top: 100rpx;
+}

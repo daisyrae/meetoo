@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class='container'>
+  <view class='padding bg-white text-black text-center text-xl margin'>
+    欢迎来到MeeToo遇喔吧
+  </view>
+  <view class='padding bg-white text-grey flex flex-direction justify-center align-center text-center'>
+    <text class='text-content text-sm'>小程序不会将您的信息提供给第三方</text>
+    <text class='text-content text-sm'>仅用于卡片、评论、回复等个人信息展示</text>
+  </view>
+  <view class="box bg-white text-center radius padding">
+    <button class="cu-btn bg-red lg round shadow" style='width:80%' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">授权登录</button>
+  </view>
+</view>

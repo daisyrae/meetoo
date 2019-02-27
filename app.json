@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/moment/moment",
+    "pages/group/group",
+    "pages/mine/mine",
+    "pages/mineInfo/mineInfo",
+    "pages/momentAbout/momentAbout",
+    "pages/momentPublish/momentPublish",
+    "pages/momentDetail/momentDetail",
+    "pages/userDetail/userDetail",
+    "pages/newsDetail/newsDetail",
+    "pages/userMoments/userMoments",
+    "pages/userFans/userFans",
+    "pages/userFollows/userFollows",
+    "pages/mineGroup/mineGroup",
+    "pages/typeGroup/typeGroup",
+    "pages/groupApply/groupApply",
+    "pages/topic/topic",
+    "pages/topicPublish/topicPublish",
+    "pages/topicDetail/topicDetail",
+    "pages/mineTopic/mineTopic",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e54d42",
+    "navigationBarTitleText": "遇喔",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#9e9e9e",
+    "selectedColor": "#e54d42",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/moment/moment",
+        "iconPath": "/images/icon_tab1_off.png",
+        "selectedIconPath": "/images/icon_tab1_on.png",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/group/group",
+        "iconPath": "/images/icon_tab2_off.png",
+        "selectedIconPath": "/images/icon_tab2_on.png",
+        "text": "广场"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/images/icon_tab3_off.png",
+        "selectedIconPath": "/images/icon_tab3_on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "将使用您的位置信息"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx18a2ac992306a5a4"
+  ]
+}

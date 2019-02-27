@@ -1,0 +1,4 @@
+/* pages/momentAbout/momentAbout.wxss */
+page{
+  background-color: #fff;
+}

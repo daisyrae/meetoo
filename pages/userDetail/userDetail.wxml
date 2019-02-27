@@ -1,0 +1,53 @@
+<!--pages/userDetail/userDetail.wxml-->
+<view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class='image' style='filter:blur(5px)'>
+      <image src="{{userInfo.avatar}}" mode="aspectFill" bindtap="previewImage" data-url="{{userInfo.avatar}}"></image>
+    </view>
+    <view class="cu-list menu menu-avatar margin-top">
+      <view class='text-content text-lg text-bold text-center padding'>{{userInfo.signature}}</view>
+      <view class="cu-item" style='margin:0 10%;'>
+        <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatar}});">
+          <view class="cu-tag badge icon-{{1==userInfo.sex?'male':'female'}} bg-{{1==userInfo.sex?'blue':'pink'}}"></view>
+        </view>
+        <view class='content flex-sub margin-left-sm'>
+          <view>{{userInfo.nick}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            {{userInfo.province?userInfo.province:'未知地区'}} {{userInfo.city}}
+            <view>
+              {{constellations[userInfo.constellation-1]}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar margin-top shop">
+      <view class="action" bindtap='gotoMoments'>
+        <text class='text-xl text-black'>{{userStatic.momentsCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>动态</text>
+        </view>
+      </view>
+      <view class="action" bindtap='gotoFollows'>
+        <text class='text-xl text-black'>{{userStatic.followsCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>关注</text>
+        </view>
+      </view>
+      <view class="action" bindtap='gotoFans'>
+        <text class='text-xl text-black'>{{userStatic.fansCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>粉丝</text>
+        </view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction bg-white">
+      <button wx:if="{{!isFan}}" class="cu-btn bg-red lg round shadow" bindtap='comfirmFan'>
+        <text class="icon-favor margin-right"></text> 关注
+      </button>
+      <button wx:if="{{isFan}}" class="cu-btn bg-red lg round shadow" bindtap='disabledFan'>
+        <text class="icon-favorfill margin-right"></text> 已关注
+      </button>
+    </view>
+  </view>
+</view>

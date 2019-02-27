@@ -1,0 +1,9 @@
+/* pages/mineInfo/mineInfo.wxss */
+
+page {
+  background-color: #fff;
+}
+
+form-group .title {
+  min-width: calc(4em + 15px);
+}

@@ -1,0 +1,28 @@
+/* pages/group/group.wxss */
+page{
+  background-color: #fff;
+}
+
+.position-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.nav-list{
+  padding: 0px 20rpx 0px;
+}
+
+.main{
+  margin-top: 100rpx;
+}
+
+.group-icon{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  top: 25%;
+  left: 50%;
+}

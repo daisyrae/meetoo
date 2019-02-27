@@ -1,0 +1,30 @@
+<!--pages/typeGroup/typeGroup.wxml-->
+<view class="cu-bar text-white bg-red position-fixed">
+  <view class='action'>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='gotoGroupApply'>
+      <text class='icon-roundadd margin-right-sm'></text >创建圈子
+    </button>
+  </view>
+</view>
+<view class="cu-list grid col-2 main">
+  <block wx:for="{{groups}}" wx:key wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item shadow" bindtap='gotoTopic' data-id="{{item.id}}">
+        <view class='image'>
+          <image src="/images/group{{item.type}}.jpg" mode="widthFix" style='width:100%;height:100%;'></image>
+          <view class="cu-tag bg-{{typeBg[item.type]}}">{{typeName[item.type]}}|{{item.tag}}</view>
+          <view class='cu-bar text-content text-white' style='white-space:normal;font-size:20rpx;margin-bottom:20rpx;text-align:left;'>{{item.intro}}</view>
+        </view>
+        <view class="cu-list menu menu-avatar">
+          <view class='content flex-sub text-left padding-sm'>
+            <view class='text-bold margin-bottom-sm text-content'>{{item.groupName}}</view>
+            <view class='text-sm margin-bottom-sm text-content'>{{item.meetooUser.nick}}</view>
+            <view class='text-gray text-sm'>{{item.createTime}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

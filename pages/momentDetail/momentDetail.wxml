@@ -1,0 +1,83 @@
+<!--pages/momentDetail/momentDetail.wxml-->
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow padding-bottom">
+    <view class="cu-list menu menu-avatar" bindtap='gotoUserDetail' data-userid="{{momentModel.meetooUser.id}}">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{momentModel.meetooUser.avatar}});"></view>
+        <view class='content flex-sub'>
+          <view>{{momentModel.meetooUser.nick}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            <text>{{momentModel.meetooMoment.createTime}}</text>
+            <text wx:if="{{momentModel.meetooMoment.address}}" class='icon-location'> {{momentModel.meetooMoment.address}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='text-content' style='word-break: break-all;max-height:100%;'>
+      <text>{{momentModel.meetooMoment.emotion}}</text>
+    </view>
+    <view wx:if="{{momentModel.meetooMomentPicList.length>0}}" class="grid col-3 grid-square flex-sub padding-lr">
+      <block wx:for="{{momentModel.meetooMomentPicList}}" wx:key="{{id}}" wx:for-index="index">
+        <view class="bg-img only-img" style="background-image:url({{baseUrl+item.url}});" bindtap='previewPhoto' data-index="{{index}}">
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar margin-top solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-red'></text>
+    <text>喜欢</text>
+  </view>
+  <view class='action'>
+    <button class='cu-btn round bg-red shadow-blur sm margin-right' bindtap='saveMomentMark'>
+      <text class='icon-like'></text> </button>
+      <button class='cu-btn round bg-red shadow-blur sm' open-type="share">
+      <text class='icon-forwardfill'></text> </button>
+  </view>
+</view>
+<view class="padding bg-white">
+  <view wx:if="{{momentModel.meetooMomentMarkList.length<=0}}" class='text-content text-gray'>
+    暂未收到喜欢...
+  </view>
+  <view class="cu-avatar round margin-right-sm margin-bottom-sm" style="background-image:url({{item.avatar}});" wx:for="{{momentModel.meetooMomentMarkList}}" wx:key bindtap='gotoUserDetail' data-userid="{{item.userId}}"></view>
+</view>
+
+<view class="cu-bar margin-top solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-red'></text>
+    <text>评论</text>
+  </view>
+  <view class='action'>
+    <button class='cu-btn round bg-red shadow-blur sm' bindtap='showComment'>
+      <text class='icon-comment'></text> </button>
+  </view>
+</view>
+<view class="cu-list menu menu-avatar comment">
+  <view wx:if="{{momentModel.meetooMomentCommentList.length<=0}}" class='padding bg-white text-content text-gray'>
+    暂未收到评论...
+  </view>
+  <view class="cu-item" wx:for="{{momentModel.meetooMomentCommentList}}" wx:key>
+    <view class="cu-avatar round" style="background-image:url({{item.avatar}});" bindtap='gotoUserDetail' data-userid="{{item.userId}}"></view>
+    <view class='content'>
+      <view class='text-gray'>{{item.nick}}</view>
+      <view class='text-black text-content text-df'>
+        {{item.word}}
+      </view>
+      <view class='flex justify-end'>
+        <view class='text-gray text-sm'>{{item.createTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{focus}}" class="cu-bar search position-fixed">
+  <view class='search-form round'>
+    <text class="icon-mark"></text>
+    <input type="text" placeholder="" maxlength="120" focus='{{focus}}' confirm-type="send" value='{{comment}}' bindblur='loseFocus' bindinput='saveComment' bindconfirm='commitComment'></input>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur round' bindtap='commitComment'>发送</button>
+  </view>
+</view>

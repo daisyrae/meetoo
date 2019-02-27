@@ -1,0 +1,16 @@
+/* pages/typeGroup/typeGroup.wxss */
+page{
+  background-color: #fff;
+}
+
+.position-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.main{
+  margin-top: 100rpx;
+}

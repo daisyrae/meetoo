@@ -1,0 +1,10 @@
+/**index.wxss**/
+.container{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  background-color: #fff;
+  z-index: 10;
+  padding-top:25%; 
+}

@@ -1,0 +1,50 @@
+<!--pages/topic/topic.wxml-->
+<view class="cu-bar text-white bg-red position-fixed">
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='refresh'>
+      <text class='icon-refresh margin-right-sm'></text >刷新
+    </button>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='gotoMyTopic'>
+      <text class='icon-list margin-right-sm'></text >我的话题
+    </button>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='gotoTopicPublish'>
+      <text class='icon-edit margin-right-sm'></text >发表话题
+    </button>
+  </view>
+</view>
+<view class="cu-card dynamic no-card main">
+  <view wx:for="{{topics}}" wx:key wx:for-index="pindex" class="cu-item shadow" bindtap='gotoDetail' data-id='{{item.meetooTopic.id}}'>
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{item.meetooUser.avatar}});" catchtap='gotoUserDetail' data-userid="{{item.meetooUser.id}}"></view>
+        <view class='content flex-sub'>
+          <view>{{item.meetooUser.nick}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            {{item.meetooTopic.createTime}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='text-content' style='word-break: break-all;'>
+      {{item.meetooTopic.topic}}
+    </view>
+    <view wx:if="{{item.meetooTopicPicList.length>0&&item.meetooTopicPicList.length<4}}" class="grid {{item.meetooTopicPicList.length>1?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+      <view class="bg-img {{item.meetooTopicPicList.length>1?'':'only-img'}}" style="background-image:url({{baseUrl+pic}});" wx:for="{{item.meetooTopicPicList}}" wx:key wx:for-item="pic" catchtap='previewPic' data-index='{{pindex}}' data-url='{{baseUrl+pic}}'>
+      </view>
+    </view>
+    <view wx:if="{{item.meetooTopicPicList.length>3}}" class="grid col-3 grid-square flex-sub padding-lr">
+      <view class="bg-img" style="background-image:url({{baseUrl+item.meetooTopicPicList[0]}});" catchtap='previewPic' data-index='{{pindex}}' data-url='{{baseUrl+item.meetooTopicPicList[0]}}'>
+      </view>
+      <view class="bg-img" style="background-image:url({{baseUrl+item.meetooTopicPicList[1]}});" catchtap='previewPic' data-index='{{pindex}}' data-url='{{baseUrl+item.meetooTopicPicList[1]}}'>
+      </view>
+      <view class="bg-img" style="background-image:url({{baseUrl+item.meetooTopicPicList[2]}});" catchtap='previewPic' data-index='{{pindex}}' data-url='{{baseUrl+item.meetooTopicPicList[2]}}'>
+        <view class="cu-tag bg-red">共{{item.meetooTopicPicList.length}}张</view>
+      </view>
+    </view>
+    <view class='text-gray text-right padding'>
+      <text class="icon-markfill"></text> {{item.meetooTopicCommentList.length}}
+  </view>
+</view>
+</view>

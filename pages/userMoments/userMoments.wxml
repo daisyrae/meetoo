@@ -1,0 +1,36 @@
+<!--pages/userMoments/userMoments.wxml-->
+<block wx:for="{{moments}}" wx:key="{{id}}" wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item shadow" bindtap='gotoMomentDetail' data-index='{{index}}'>
+        <view wx:if="{{item.meetooMomentPicList.length>0}}" class="bg-img padding-tb-xl" style="background-image: url({{baseUrl+item.meetooMomentPicList[0].url}})">
+          <view wx:if="{{item.meetooMomentPicList.length>1}}" class="cu-tag bg-red">{{item.meetooMomentPicList.length}}张</view>
+          <view class='padding-xl text-white'>
+            <view class='padding-xs text-content'>
+              {{item.meetooMoment.emotion}}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.meetooMomentPicList.length<=0}}" class='padding text-black solid-bottom'>
+          <view class='padding-xs text-content'>
+            {{item.meetooMoment.emotion}}
+          </view>
+        </view>
+        <view class="cu-list menu menu-avatar ">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{item.meetooUser.avatar}});"></view>
+            <view class='content flex-sub'>
+              <view class='text-black'>{{item.meetooUser.nick}}</view>
+              <view class='text-sm text-gray flex justify-between'>
+                {{item.meetooMoment.createTime}}
+                <view class=" text-sm">
+                  <text class="icon-attentionfill"> {{item.meetooMoment.flag}} </text>
+                  <text class="icon-appreciatefill"> {{item.meetooMomentMarkList.length}} </text>
+                  <text class="icon-messagefill"> {{item.meetooMomentCommentList.length}} </text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>

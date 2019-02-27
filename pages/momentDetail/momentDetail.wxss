@@ -1,0 +1,11 @@
+/* pages/momentDetail/momentDetail.wxss */
+
+.grid.col-3>view {
+  margin-right: 0;
+}
+
+.position-fixed{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

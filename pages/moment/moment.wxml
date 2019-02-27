@@ -1,0 +1,58 @@
+<!--pages/moment/moment.wxml-->
+<view class="cu-bar text-white bg-red position-fixed">
+  <view class='action'>
+    <scroll-view scroll-x class="nav text-center bg-red">
+      <view class="cu-item {{0==tabIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="0">
+        <text class='icon-newfill'></text> 最新
+      </view>
+      <view class="cu-item {{1==tabIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="1">
+        <text class='icon-hotfill'></text> 最热
+      </view>
+    </scroll-view>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='publishMoment'>
+      <text class='icon-writefill margin-right-sm'></text >发布动态
+    </button>
+  </view>
+</view>
+
+<scroll-view scroll-y class="main fixed-scroll" style='height:{{windowheight}}px;' scroll-top="{{0==tabIndex?scrollNewTop:scrollHotTop}}" enable-back-to-top='true' bindscroll="scroll" bindscrolltoupper="refresh">
+<view wx:if="{{loading}}" class="cu-load bg-white margin-top text-red loading main"></view>
+    <view class="cu-card dynamic">
+    <block wx:for="{{0==tabIndex?newMoments:hotMoments}}" wx:key="{{id}}" wx:for-index="index">
+      <view class="cu-item shadow-lg" bindtap='gotoMomentDetail' data-index='{{index}}'>
+        <view class="cu-list menu menu-avatar ">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{item.meetooUser.avatar}});" catchtap='gotoUserDetail' data-userid="{{item.meetooUser.id}}"></view>
+            <view class='content flex-sub'>
+              <view class='text-black'>{{item.meetooUser.nick}}</view>
+              <view class='text-sm text-gray flex justify-between'>
+                {{item.meetooMoment.createTime}}
+                <view class=" text-sm">
+                  <text class="icon-attentionfill"> {{item.meetooMoment.flag}} </text>
+                  <text class="icon-appreciatefill"> {{item.meetooMomentMarkList.length}} </text>
+                  <text class="icon-messagefill"> {{item.meetooMomentCommentList.length}} </text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.meetooMomentPicList.length>0}}" class="bg-img padding-tb-xl" style="background-image: url({{baseUrl+item.meetooMomentPicList[0].url}})">
+          <view wx:if="{{item.meetooMomentPicList.length>1}}" class="cu-tag bg-red">{{item.meetooMomentPicList.length}}张</view>
+          <view class='padding-xl text-white'>
+            <view class='padding-xs text-content'>
+              {{item.meetooMoment.emotion}}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.meetooMomentPicList.length<=0}}" class='padding text-black solid-bottom'>
+          <view class='padding-xs text-content'>
+            {{item.meetooMoment.emotion}}
+          </view>
+        </view>
+      </view>
+  </block>
+</view>
+<view wx:if="{{(0==tabIndex&&newMoments.length>=10)||(1==tabIndex&&hotMoments.length>=10)}}" class="cu-load bg-white text-red" bindtap='loadMore'>点我加载更多...</view>
+</scroll-view>

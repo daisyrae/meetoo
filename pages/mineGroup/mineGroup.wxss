@@ -1,0 +1,31 @@
+/* pages/mineGroup/mineGroup.wxss */
+page{
+  background-color: #fff;
+}
+
+.group-tag{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10rpx;
+}
+
+.fix-height{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.position-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.main{
+  margin-top: 100rpx;
+}

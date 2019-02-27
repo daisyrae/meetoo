@@ -1,0 +1,38 @@
+/* pages/mine/mine.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.cu-tag.badge{
+  font-size: 30rpx;
+}
+
+image[class*="gif-"] {
+  display: block;
+}
+
+.gif-black {
+  mix-blend-mode: screen;
+}
+
+.gif-white {
+  mix-blend-mode: multiply;
+}
+
+.gradual-red {
+  background-image: #e54d42 !important;
+  color: #fff !important;
+}
+
+.position-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.main {
+  margin-top: 600rpx;
+}

@@ -1,0 +1,65 @@
+<!--pages/mine/mine.wxml-->
+<view class="bg-red position-fixed">
+  <view class='padding user-info bg-red flex flex-direction justify-center align-center text-center'>
+    <view class="cu-avatar round xl" style="background-image:url({{userInfo.avatar}});" bindtap='gotoMineInfo'>
+      <view class="cu-tag badge icon-{{1==userInfo.sex?'male':'female'}} bg-{{1==userInfo.sex?'blue':'pink'}}"></view>
+    </view>
+    <view class='title text-content margin-top'>{{userInfo.nick}}</view>
+    <view class='title text-content margin-top'>{{userInfo.signature}}</view>
+    <view class="action margin-top" bindtap='gotoMineInfo'>
+      <view class="cu-tag round bg-white light">
+        <text class='icon-locationfill'> {{userInfo.province?userInfo.province:'未知地区'}} {{userInfo.city}}</text>
+      </view>
+      <view class="cu-tag round bg-brown light">{{constellations[userInfo.constellation-1]}}</view>
+    </view>
+  </view>
+  <image src='/images/wave.gif' mode='scaleToFill' class='gif-black response' style='height:100rpx'></image>
+  <view class='bg-white padding-top'>
+    <view class="cu-bar shop">
+      <view class="action" bindtap='gotoMoments'>
+        <text class='text-xl text-black'>{{userStatic.momentsCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>动态</text>
+        </view>
+      </view>
+      <view class="action" bindtap='gotoFollows'>
+        <text class='text-xl text-black'>{{userStatic.followsCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>关注</text>
+        </view>
+      </view>
+      <view class="action" bindtap='gotoFans'>
+        <text class='text-xl text-black'>{{userStatic.fansCount}}</text>
+        <view class='margin-top-sm margin-bottom-sm'>
+          <text class='text-gray'>粉丝</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-list menu sm-border bg-white padding-top">
+    <view class="cu-item arrow">
+      <navigator class='content' hover-class='none' url='/pages/mineInfo/mineInfo'>
+        <text class='icon-profile text-red'></text>
+        <text class='text-black'>编辑资料</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class='cu-btn content' open-type="share">
+        <text class='icon-share text-red'></text>
+        <text class='text-black'>邀请好友</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class='content' hover-class='none' target="miniProgram" open-type="navigate" app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=2g2C3QV0FfQ%3D" version="release">
+        <text class='icon-appreciate text-red'></text>
+        <text class='text-black'>赞赏支持</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class='content' hover-class='none' url='/pages/momentAbout/momentAbout'>
+        <text class='icon-tag text-red'></text>
+        <text class='text-black'>关于遇喔</text>
+      </navigator>
+    </view>
+  </view>
+</view>

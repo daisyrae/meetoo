@@ -1,0 +1,67 @@
+<!--pages/mineGroup/mineGroup.wxml-->
+<!-- <view class="padding flex flex-direction bg-white">
+  <button class="cu-btn bg-red lg round shadow" bindtap='gotoGroupApply'>创建圈子</button>
+</view> -->
+<view class="cu-bar text-white bg-red position-fixed">
+  <view class='action'>
+    <scroll-view scroll-x class="nav text-center bg-red">
+      <view class="cu-item {{0==tabIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="0">
+        <text class='icon-all'></text> 全部
+      </view>
+      <view class="cu-item {{1==tabIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="1">
+        <text class='icon-my'></text> 我的
+      </view>
+    </scroll-view>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur sm text-white' bindtap='gotoGroupApply'>
+      <text class='icon-roundadd margin-right-sm'></text >创建圈子
+    </button>
+  </view>
+</view>
+<view wx:if="{{0==tabIndex}}" class="cu-list grid col-2 main">
+  <block wx:for="{{allGroups}}" wx:key wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item shadow" bindtap='gotoTopic' data-id="{{item.id}}">
+        <view class='image'>
+          <image src="/images/group{{item.type}}.jpg" mode="widthFix" style='width:100%;height:100%;'></image>
+          <view class="cu-tag bg-{{typeBg[item.type]}}">{{typeName[item.type]}}|{{item.tag}}</view>
+          <view class='cu-bar text-content text-white' style='white-space:normal;font-size:20rpx;margin-bottom:20rpx;text-align:left;'>{{item.intro}}</view>
+        </view>
+        <view class="cu-list menu menu-avatar">
+          <view class='content flex-sub text-left padding-sm'>
+            <view class='text-bold margin-bottom-sm text-content'>{{item.groupName}}</view>
+            <view class='text-sm margin-bottom-sm text-content'>{{item.meetooUser.nick}}</view>
+            <view class='text-gray text-sm'>{{item.createTime}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{1==tabIndex}}" class="cu-list grid col-2 main">
+  <block wx:for="{{myGroups}}" wx:key wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item shadow" bindtap='gotoTopic' data-id="{{item.id}}">
+        <view class='image'>
+          <image src="/images/group{{item.type}}.jpg" mode="widthFix" style='width:100%;height:100%;'></image>
+          <view class="cu-tag bg-{{typeBg[item.type]}}">{{typeName[item.type]}}|{{item.tag}}</view>
+          <view class='cu-bar text-content text-white' style='white-space:normal;font-size:20rpx;margin-bottom:20rpx;text-align:left;'>{{item.intro}}</view>
+        </view>
+        <view class="cu-list menu menu-avatar">
+          <view class='content flex-sub text-left padding-sm'>
+            <view class='text-bold margin-bottom-sm text-content'>{{item.groupName}}</view>
+            <view class='text-sm margin-bottom-sm text-content'>{{item.meetooUser.nick}}</view>
+            <view class='text-gray text-sm flex justify-between align-center'>
+              {{item.createTime}}
+              <text class='icon-deletefill text-red text-lg' catchtap='removeGroup' data-id="{{item.id}}"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+

@@ -1,0 +1,61 @@
+<!--pages/topicDetail/topicDetail.wxml-->
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow">
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{topic.meetooUser.avatar}});" catchtap='gotoUserDetail' data-userid="{{topic.meetooUser.id}}"></view>
+        <view class='content flex-sub'>
+          <view>{{topic.meetooUser.nick}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            {{topic.meetooTopic.createTime}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='text-content' style='word-break: break-all;max-height:100%;'>
+      <text>{{topic.meetooTopic.topic}}</text>
+    </view>
+    <view wx:if="{{topic.meetooTopicPicList.length>0}}" class="grid col-3 grid-square flex-sub padding-lr">
+      <view class="bg-img {{topic.meetooTopicPicList.length>1?'':'only-img'}}" style="background-image:url({{baseUrl+pic}});" wx:for="{{topic.meetooTopicPicList}}" wx:key wx:for-item="pic" catchtap='previewPic' data-url='{{baseUrl+pic}}'>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar margin-top solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-red'></text>
+    <text>评论</text>
+  </view>
+  <view class='action'>
+    <button class='cu-btn round bg-red shadow-blur sm' bindtap='showComment'>
+      <text class='icon-comment'></text> </button>
+  </view>
+</view>
+<view class="cu-list menu menu-avatar comment">
+  <view wx:if="{{topic.meetooTopicCommentList.length<=0}}" class='padding bg-white text-content text-gray'>
+    暂无评论...
+  </view>
+  <view class="cu-item" wx:for="{{topic.meetooTopicCommentList}}" wx:key>
+    <view class="cu-avatar round" style="background-image:url({{item.avatar}});" bindtap='gotoUserDetail' data-userid="{{item.userId}}"></view>
+    <view class='content'>
+      <view class='text-gray'>{{item.nick}}</view>
+      <view class='text-black text-content text-df'>
+        {{item.word}}
+      </view>
+      <view class='flex justify-end'>
+        <view class='text-gray text-sm'>{{item.createTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{focus}}" class="cu-bar search position-fixed">
+  <view class='search-form round'>
+    <text class="icon-mark"></text>
+    <input type="text" placeholder="" maxlength="120" focus='{{focus}}' confirm-type="send" value='{{comment}}' bindblur='loseFocus' bindinput='saveComment' bindconfirm='commitComment'></input>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-red shadow-blur round' bindtap='commitComment'>发送</button>
+  </view>
+</view>

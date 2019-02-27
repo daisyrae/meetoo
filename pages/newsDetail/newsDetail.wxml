@@ -1,0 +1,2 @@
+<!--pages/newsDetail/newsDetail.wxml-->
+<web-view src="{{newUrl}}"></web-view>

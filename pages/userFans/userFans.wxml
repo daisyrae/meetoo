@@ -1,0 +1,17 @@
+<!--pages/userFans/userFans.wxml-->
+<view class="cu-list menu menu-avatar">
+  <block wx:for="{{fans}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoUserDetail' data-userid="{{item.id}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+      <view class='content'>
+        <view class='text-black'>{{item.nick}}</view>
+        <view class='text-gray text-sm'>
+          <text wx:if="{{!item.province}}" class='icon-infofill text-red'></text> {{item.province?item.province:'未知地区'}} {{item.city}}</view>
+      </view>
+      <view class='action'>
+        <view class="text-lg icon-{{1==item.sex?'male':'female'}} text-{{1==item.sex?'blue':'pink'}}"></view>
+        <view class='text-grey text-sm'>{{constellations[item.constellation-1]}}</view>
+      </view>
+    </view>
+  </block>
+</view>

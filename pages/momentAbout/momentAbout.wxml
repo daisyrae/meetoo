@@ -1,0 +1,64 @@
+<!--pages/momentAbout/momentAbout.wxml-->
+<view class="cu-bar">
+  <view class='action'>
+    <text class='icon-info text-red '></text> 介绍
+  </view>
+</view>
+<view class="cu-card no-card">
+  <view class="cu-item padding">
+    <view class='text-content text-sm'>
+      1、遇喔为用户提供一个浅社交的交流平台。
+    </view>
+    <view class='text-content text-sm'>
+      2、用户通过图文分享动态，结识好友。
+    </view>
+  </view>
+</view>
+<view class="cu-bar solid-top">
+  <view class='action'>
+    <text class='icon-question text-red '></text> 说明
+  </view>
+</view>
+<view class="cu-card no-card">
+  <view class="cu-item padding">
+    <view class='text-content text-sm'>
+      1、本小程序不会侵犯用户的合法权益及个人隐私。
+    </view>
+    <view class='text-content text-sm'>
+      2、使用者请注意个人言论及圈子话题讨论范围，避免产生不良影响，后果由个人承担。
+    </view>
+    <view class='text-content text-sm'>
+      3、小程序功能暂时处于完善阶段，如您有好的建议和想法，欢迎联系作者进行改善。
+    </view>
+  </view>
+</view>
+<view class="cu-bar solid-top">
+  <view class='action'>
+    <text class='icon-evaluate text-red '></text> 鸣谢
+  </view>
+</view>
+<view class="cu-card no-card">
+  <view class="cu-item padding">
+    <view class='text-content text-sm'>
+      芥末不是末
+    </view>
+  </view>
+</view>
+<view class="cu-bar solid-top">
+  <view class='action'>
+    <text class='icon-evaluate text-red '></text> 联系开发者
+  </view>
+</view>
+<view class="cu-card no-card">
+  <view class="cu-item padding">
+    <view class='text-content text-sm'>
+      电话：18607169044
+    </view>
+    <view class='text-content text-sm'>
+      微信：huyoungyoung
+    </view>
+    <view class='text-content text-sm'>
+      QQ：583351249
+    </view>
+  </view>
+</view>

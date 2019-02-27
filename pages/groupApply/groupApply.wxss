@@ -1,0 +1,4 @@
+/* pages/groupApply/groupApply.wxss */
+page{
+  background-color: #fff;
+}
